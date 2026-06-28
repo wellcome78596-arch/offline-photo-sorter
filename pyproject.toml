@@ -1,0 +1,43 @@
+[project]
+name = "offline-photo-sorter"
+version = "0.1.0"
+description = "Windows 11 offline photo sorter with preview, PowerShell confirmation, and no-delete safety checks."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "PySide6>=6.7",
+    "Pillow>=10.0",
+]
+
+license = { file = "LICENSE" }
+authors = [
+    { name = "Offline Photo Sorter contributors" },
+]
+keywords = ["windows", "photos", "offline", "powershell", "pyside6"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Win32 (MS Windows)",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows :: Windows 11",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Desktop Environment",
+    "Topic :: Multimedia :: Graphics",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pyinstaller>=6.0",
+]
+
+[project.scripts]
+offline-photo-sorter = "photo_sorter.gui:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
