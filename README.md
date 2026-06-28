@@ -165,6 +165,23 @@ git commit -m "initial: offline photo sorter"
 
 之後可建立 GitHub repository，再依照 GitHub 頁面提供的 remote 指令推送。
 
+若本機已設定好 `origin/main`，可用以下指令上傳目前 commit：
+
+```powershell
+git push
+git status
+```
+
+當 `git status` 顯示類似以下內容時，代表本機 `main` 分支和 GitHub 的 `origin/main` 已同步，且目前沒有尚未提交的程式碼變更：
+
+```text
+On branch main
+Your branch is up to date with 'origin/main'.
+nothing to commit, working tree clean
+```
+
+注意：這只代表原始碼和文件已同步。`dist\OfflinePhotoSorter.exe` 屬於打包產物，預設不放進 GitHub 原始碼 repository；若要提供 EXE 給使用者下載，建議另外用 GitHub Release 上傳。
+
 ## 開發備份機制
 
 `tools/dev_checkpoint.ps1` 是給開發者使用的備份輔助腳本。每完成一次軟體修正後執行一次：
