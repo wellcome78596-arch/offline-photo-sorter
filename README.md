@@ -136,10 +136,22 @@ py -m pip download -r requirements-dev.txt -d C:\photo_sorter_offline
 
 ```powershell
 python -m pip install -r requirements-dev.txt
-pyinstaller --noconsole --name OfflinePhotoSorter src/photo_sorter/__main__.py
+powershell -ExecutionPolicy Bypass -File tools\build_exe.ps1
 ```
 
-打包結果會出現在 `dist` 資料夾。
+打包完成後，執行檔會出現在：
+
+```text
+dist\OfflinePhotoSorter.exe
+```
+
+如果尚未安裝 PyInstaller，請先執行：
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+```
+
+注意：`dist` 與 `build` 資料夾已被 `.gitignore` 排除，不應上傳到 GitHub 原始碼 repository。若要發布 exe，建議之後使用 GitHub Release 附加檔案。
 
 ## GitHub 上傳準備
 
@@ -175,4 +187,3 @@ powershell -ExecutionPolicy Bypass -File tools\run_tests.ps1
 ## 授權
 
 本專案使用 MIT License。詳見 [LICENSE](LICENSE)。
-
